@@ -1,0 +1,63 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2709
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fswiss\fcharset0 Helvetica;\f1\froman\fcharset0 Times-Roman;}
+{\colortbl;\red255\green255\blue255;\red202\green202\blue202;\red0\green0\blue0;\red202\green202\blue202;
+\red255\green255\blue255;\red203\green203\blue202;\red255\green255\blue255;\red212\green212\blue212;\red141\green213\blue254;
+\red194\green125\blue100;\red167\green197\blue151;}
+{\*\expandedcolortbl;;\cssrgb\c83137\c83137\c83137;\cssrgb\c0\c1\c1;\cssrgb\c83229\c83229\c83125;
+\cssrgb\c100000\c100000\c99985\c0;\cssrgb\c83320\c83320\c83112;\cssrgb\c100000\c100000\c100000\c0;\cssrgb\c86465\c86464\c86248;\cssrgb\c61545\c86704\c99884;
+\cssrgb\c80772\c56796\c46790;\cssrgb\c71035\c80830\c65726;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww11520\viewh8400\viewkind0
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 Gestione Incendi Applicazione\
+L\'92applicazione sviluppata mi permette di creare edifici  indicando il tipo della strutta che pu\'f2 essere : Casa, Negozio, Azienda, infine bisogna inserire la longitudine e la latitudine dell\'92edificio, si possono creare pi\'f9 edifici con le stesse coordinate in quanto sullo stesso punto ci possono essere pi\'f9 strutture. 
+\f1 \cf2 \expnd0\expndtw0\kerning0
+\
+\pard\pardeftab720\partightenfactor0
+\cf3 Esempio\cf3 \cb5  Post\cf3 \cb1  Edificio:\kerning1\expnd0\expndtw0 \
+\pard\pardeftab720\partightenfactor0
+\cf3 \cb7 \expnd0\expndtw0\kerning0
+    \cf3 \{\cf3 \
+        \cf3 "tipo":\cf3  \cf3 "Negozio",\cf3 \
+        \cf3 "lon":\cf3  \cf3 92.10,\cf3 \
+        \cf3 "lat":-82.03\cf3 \
+    \cf3 \}\cf2 \cb1 \
+\cf3 \cb7 \
+Le sonde, che sono i rilevatori di fumo possono essere create a partire da un edificio gi\'e0 esistente nel DB, se si prova ad inserire un edificio non presente nel DB la creazione della sonda fallisce. Si possono creare quante sonde si vogliono in quanto in un edificio sono presenti pi\'f9 rilevatori, ogni sonda che viene creata necessit\'e0 del nome dell\'92eventuale stanza o struttura nella quale si trova.\
+Esempio\cf3 \cb5  Post\cf3 \cb7  Sonda:\
+\pard\pardeftab720\partightenfactor0
+\cf3 \cb5     \{\
+        "posizioneSonda": "salotto",\
+        "edificio": \{\
+            "id": 3,\
+            "tipo": "Azienda",\
+            "lon": 11.9,\
+            "lat": 10.73\
+        \}\
+    \}\
+\
+Infine ci sono le segnalazioni le quali partono direttamente dalle sonde, per creare una segnalazione bisogna inserire una sonda esistente nel DB, inoltre bisogna indicare la data, l\'92ora della rilevazione del fumo e il livello di fumo rilevato,  un numero compreso tra 1 e 10,  inserendo un valore non rientrante in questo range la segnalazione non verr\'e0 creata. La segnalazione infine non necessita delle coordinate in quanto le prende automaticamente dalla sonda dalla quale parte la segnalazione, anche provando ad inserire coordinate diverse esse verranno sovrascritte da quelle corrette della sonda\
+Esempio Post Segnalazione:\
+ \{\
+        "sonda": \{\
+            "id": 1,\
+            "posizioneSonda": "salotto",\
+            "edificio": \{\
+                "id": 3,\
+                "tipo": "Azienda",\
+                "lon": 11.9,\
+                "lat": 10.73\
+            \}\
+        \},\
+        "livelloFumo": 9,\
+        "lon": 11.9,\
+        "lat": 10.73,\
+        "dataOraSegnalazione": "2023-08-18T15:05:54.266056"\
+    \}\
+\
+\pard\pardeftab720\partightenfactor0
+\cf3 \cb1 In aggiunta abbiamo gli allarmi, dei sistemi che partono automaticamente inseguito a una segnalazione e non si possono creare o modificare direttamente. L\'92allarme scatta inseguito a ogni segnalazione che ha un livello di fumo maggiore o uguale a 5, una volta partita la segnalazione l\'92allarme scatta e registra la date e l\'92ora dell\'92avvenimento informando il centro di controllo. Ogni volta che una segnalazione viene modificata l\'92allarme scattata a seguito di quella segnalazione si modifica in modo automatico, questo per evitare di poter manipolare direttamente il registro degli allarmi. \
+\
+Pattern:\
+Come pattern design viene utilizzato il pattern observer il quale prevede l\'92aggiunta di un centro di controllo come soggetto in ascolto e ogni volta che scatta l\'92allarme viene informato ( tramite una stampa in console ) del dove \'e8 scattato l\'92allarme con le coordinate e l\'92ora esatta con i minuti e i secondi \cf2 \
+}

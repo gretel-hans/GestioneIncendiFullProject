@@ -1,0 +1,357 @@
+{
+	"info": {
+		"_postman_id": "7f6a38ae-dd0e-4d26-ac5f-623368ef2337",
+		"name": "Gestione Incendi",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "26336335"
+	},
+	"item": [
+		{
+			"name": "Edifici",
+			"item": [
+				{
+					"name": "Get All Edifici",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/gestioneIncendi/edifici",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"gestioneIncendi",
+								"edifici"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Edificio",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/gestioneIncendi/edifici/4",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"gestioneIncendi",
+								"edifici",
+								"4"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Post Edificio",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "    {\n        \"tipo\": \"Negozio\",\n        \"lon\": 92.10,\n        \"lat\":-82.03\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/gestioneIncendi/edifici",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"gestioneIncendi",
+								"edifici"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Put Edificio",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "    {\n        \"id\": 3,\n        \"tipo\": \"Azienda\",\n        \"lon\": 11.90,\n        \"lat\": 10.73\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/gestioneIncendi/edifici/3",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"gestioneIncendi",
+								"edifici",
+								"3"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Sonde",
+			"item": [
+				{
+					"name": "Get All Sonde",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/gestioneIncendi/sonde",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"gestioneIncendi",
+								"sonde"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Sonda",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/gestioneIncendi/sonde/6",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"gestioneIncendi",
+								"sonde",
+								"6"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Post Sonda",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n        \"posizioneSonda\": \"mansarda\",\n        \"edificio\":  {\n    \"id\": 5,\n    \"tipo\": \"Casa\",\n    \"lon\": 190.63,\n    \"lat\": -60.32\n}\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/gestioneIncendi/sonde",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"gestioneIncendi",
+								"sonde"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Put Sonda",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": 6,\n    \"posizioneSonda\": \"seconda cucina\",\n    \"edificio\": {\n        \"id\": 5,\n        \"tipo\": \"Casa\",\n        \"lon\": 190.63,\n        \"lat\": -160.32\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/gestioneIncendi/sonde/6",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"gestioneIncendi",
+								"sonde",
+								"6"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Segnalazioni",
+			"item": [
+				{
+					"name": "Get All Segnalazioni",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/gestioneIncendi/segnalazioni",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"gestioneIncendi",
+								"segnalazioni"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Segnalazione",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/gestioneIncendi/segnalazioni/3",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"gestioneIncendi",
+								"segnalazioni",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Post Segnalazione",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n        \"sonda\": {\n            \"id\": 1,\n            \"posizioneSonda\": \"salotto\",\n            \"edificio\": {\n                \"id\": 3,\n                \"tipo\": \"Azienda\",\n                \"lon\": 11.9,\n                \"lat\": 10.73\n            }\n        },\n        \"livelloFumo\": 9,\n        \"dataOraSegnalazione\": \"2023-10-18T22:55:54.266056\"\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/gestioneIncendi/segnalazioni",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"gestioneIncendi",
+								"segnalazioni"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Put Segnalazione",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": 3,\n    \"sonda\": {\n        \"id\": 1,\n        \"posizioneSonda\": \"salotto\",\n        \"edificio\": {\n            \"id\": 3,\n            \"tipo\": \"Azienda\",\n            \"lon\": 11.9,\n            \"lat\": 10.73\n        }\n    },\n    \"livelloFumo\": 9,\n    \"dataOraSegnalazione\": \"2023-08-18T15:05:54.266056\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/gestioneIncendi/segnalazioni/3",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"gestioneIncendi",
+								"segnalazioni",
+								"3"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Allarmi",
+			"item": [
+				{
+					"name": "Get All Allarmi",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/gestioneIncendi/allarmi",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"gestioneIncendi",
+								"allarmi"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Allarme",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/gestioneIncendi/allarmi/3",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"gestioneIncendi",
+								"allarmi",
+								"3"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
